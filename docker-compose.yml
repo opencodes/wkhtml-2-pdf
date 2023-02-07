@@ -1,0 +1,10 @@
+version: '3.5'
+# Contains everything needed to run scheduling
+services:
+  wkhtml-node:
+    container_name: wkhtml-node
+    image: "wkhtml-node-container"
+    build:
+      context: .
+    ports:
+      - "4100:4100"
