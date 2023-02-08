@@ -12,14 +12,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/products/:id', (req, res) => {
-    if (req.params.id === product.id.toString()) {
-        const html = `<h1>Hello World! ${req.params.id}</h1>`;
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', `attachment; filename=product-${req.params.id}.pdf`);
-        wkhtmltopdf(html).pipe(res);
-    } else {
-        res.status(404).send({ message: 'Product not found' });
-    }
+    const html = `<h1>Hello World! ${req.params.id}</h1>`;
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename=product-${req.params.id}.pdf`);
+    wkhtmltopdf(html, { pageSize: 'letter', spawnOptions: { shell: true } }).pipe(res);
 });
 
 const port = process.env.PORT || 4100;
