@@ -27,7 +27,7 @@ COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/libwkhtmltox.so /bin/
 RUN echo  wkhtmltopdf --version
 WORKDIR /app
 
-COPY package.json package-lock.json  ./
+COPY package.json  ./
 
 RUN echo node -v
 

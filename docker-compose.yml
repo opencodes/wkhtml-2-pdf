@@ -7,4 +7,8 @@ services:
     build:
       context: .
     ports:
-      - "4100:4100"
+      - "${CONTAINER_PORT}:${TARGET_PORT}"
+    environment:
+      - GATEWAY_URL=${GATEWAY_URL}
+      - JWT_KEY=${JWT_KEY}
+      - PORT=${CONTAINER_PORT}

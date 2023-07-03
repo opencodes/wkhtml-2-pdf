@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "node-wkhtmltopdf": "^2.0.0",
     "wkhtmltopdf": "^0.4.0"
   }
 }
